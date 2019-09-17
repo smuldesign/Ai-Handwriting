@@ -1,0 +1,31 @@
+{
+  "name": "ai-handwriting",
+  "version": "1.0.0",
+  "description": "Yeet",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/smuldesign/Ai-Handwriting.git"
+  },
+  "author": " <Your Name> (example.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/smuldesign/Ai-Handwriting/issues"
+  },
+  "homepage": "https://github.com/smuldesign/Ai-Handwriting#readme",
+  "dependencies": {
+    "ejs": "^2.7.1",
+    "express": "^4.17.1",
+    "multer": "^1.4.2",
+    "nodemon": "^1.19.2",
+    "request": "^2.88.0"
+  },
+  "devDependencies": {
+    "should": "~7.1.0",
+    "mocha": "~2.3.3",
+    "supertest": "~1.1.0"
+  }
+}
