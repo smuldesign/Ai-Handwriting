@@ -38,7 +38,7 @@ app.post('/', upload.single('photo'), (req, res) => {
         getText(url)
             .then((result) => {
             result = JSON.parse(result);
-            res.render('test.ejs', result)
+            res.render('test.ejs', {result: result})
         }).catch(function(error) {
                 console.error(error);
             });
