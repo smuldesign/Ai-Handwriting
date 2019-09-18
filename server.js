@@ -28,7 +28,6 @@ app.post('/upload', upload.single('photo'), (req, res) => {
     if(req.file) {
         let name = req.file.filename;
         let url = homeUrl + uploadFolder + '/' + name;
-        console.log(url);
         getimage.getText(url);
     }
     else throw 'error';
