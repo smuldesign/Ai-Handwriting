@@ -16,7 +16,7 @@ app.use(express.static('public'));
 app.post('/upload', upload.single('photo'), (req, res) => {
     var homeUrl = req.protocol+"://"+req.headers.host;
     if(req.file) {
-        let name = JSON.stringify(req.file.filename);
+        let name = req.file.filename;
         let url = homeUrl + uploadFolder + '/' + name;
         console.log(url);
     }
