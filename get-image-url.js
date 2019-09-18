@@ -1,54 +1,58 @@
-'use strict';
+module.exports = {
+    getText: function (image) {
+        const request = require('request');
 
-const request = require('request');
+        let subscriptionKey = '8aceeb2bc48c4f2888708a3a67e836bd';
+        let endpoint = 'https://westeurope.api.cognitive.microsoft.com/';
+        if (!subscriptionKey) { throw new Error('Set your environment variables for your subscription key and endpoint.'); }
 
-let subscriptionKey = '8aceeb2bc48c4f2888708a3a67e836bd';
-let endpoint = 'https://westeurope.api.cognitive.microsoft.com/';
-if (!subscriptionKey) { throw new Error('Set your environment variables for your subscription key and endpoint.'); }
+        var uriBase = endpoint + 'vision/v2.0/read/core/asyncBatchAnalyze';
 
-var uriBase = endpoint + 'vision/v2.0/read/core/asyncBatchAnalyze';
-
-const imageUrl = 'https://www.teachertoolkit.co.uk/wp-content/uploads/2014/05/photo1.jpg';
+        const imageUrl = image;
 
 // Request parameters.
-const params = {
-    'language': 'unk',
-    'detectOrientation': 'true',
-};
+        const params = {
+            'language': 'unk',
+            'detectOrientation': 'true',
+        };
 
-const options = {
-    uri: uriBase,
-    qs: params,
-    body: '{"url": ' + '"' + imageUrl + '"}',
-    headers: {
-        'Content-Type': 'application/json',
-        'Ocp-Apim-Subscription-Key' : subscriptionKey
-    }
-};
+        const options = {
+            uri: uriBase,
+            qs: params,
+            body: '{"url": ' + '"' + imageUrl + '"}',
+            headers: {
+                'Content-Type': 'application/json',
+                'Ocp-Apim-Subscription-Key' : subscriptionKey
+            }
+        };
 
-request.post(options, (error, response, body) => {
-    if (error) {
-        console.log('Error: ', error);
-        return;
-    }
-
-    const optionsGet = {
-        uri: response.headers['operation-location'],
-        qs: params,
-        headers: {
-            'Content-Type': 'application/json',
-            'Ocp-Apim-Subscription-Key' : subscriptionKey
-        }
-    };
-    setTimeout(function(){
-        request.get(optionsGet, (error, response, body) => {
+        request.post(options, (error, response, body) => {
             if (error) {
                 console.log('Error: ', error);
                 return;
             }
-            if (body) {
-                console.log(body)
-            }
+            console.log(response.headers['operation-location']);
+            const optionsGet = {
+                uri: response.headers['operation-location'],
+                qs: params,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Ocp-Apim-Subscription-Key' : subscriptionKey
+                }
+            };
+            console.log('Wait while we get you file....');
+            setTimeout(function(){
+                request.get(optionsGet, (error, response, body) => {
+                    if (error) {
+                        console.log('Error: ', error);
+                        return;
+                    }
+                    if (body) {
+                        console.log(body);
+                        return body;
+                    }
+                });
+            }, 10000);
         });
-        }, 3000);
-});
+    }
+};
