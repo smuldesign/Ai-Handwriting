@@ -35,6 +35,7 @@ app.post('/', upload.single('photo'), (req, res) => {
         let name = req.file.filename;
         let url = homeUrl + uploadFolder + '/' + name;
         getText(url).then((result) => {
+            console.log(result);
             res.render('test.ejs', {result: result})
         });
     }
@@ -43,6 +44,5 @@ app.post('/', upload.single('photo'), (req, res) => {
 
 async function getText(url) {
     console.log('calling');
-    var result = await getimage.getText(url);
-    return result;
+    return await getimage.getText(url);
 }

@@ -10,7 +10,7 @@
     result.recognitionResults.forEach(text => {
     text.lines.forEach(line => {
     %>
-        <%= line.text + '<br>'%>
+        <%- line.text + '<br>'%>
     <%
     });
     });
