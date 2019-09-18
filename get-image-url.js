@@ -4,7 +4,7 @@ module.exports = {
 
             const request = require('request');
 
-            let subscriptionKey = '8aceeb2bc48c4f2888708a3a67e836bd';
+            let subscriptionKey = '<HIDE YOUR KEY>';
             let endpoint = 'https://westeurope.api.cognitive.microsoft.com/';
             if (!subscriptionKey) { throw new Error('Set your environment variables for your subscription key and endpoint.'); }
 
