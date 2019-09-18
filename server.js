@@ -4,9 +4,8 @@ const upload = multer({dest: __dirname + '/uploads/images'});
 const getimage = require('./get-image-url.js');
 
 const app = express();
-const PORT = 8000;
 
-app.listen(PORT, () => {
+app.listen(8000, () => {
     console.log('Listening at ' + PORT );
 });
 
