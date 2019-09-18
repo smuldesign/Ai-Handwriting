@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "heroku": "git add . && git commit -am 'Debug' && git push && git push heroku master"
+    "heroku": "git add . && git commit -am 'Debug' && git push && git push heroku master",
+    "herokuLog": "heroku logs --tail"
   },
   "repository": {
     "type": "git",

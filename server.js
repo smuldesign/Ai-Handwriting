@@ -13,9 +13,11 @@ app.listen(process.env.PORT || PORT, () => {
 app.use(express.static('public'));
 
 app.post('/upload', upload.single('photo'), (req, res) => {
+    var homeUrl = req.protocol+"://"+req.headers.host;
     if(req.file) {
         let url = JSON.stringify(req.file);
         console.log(url);
+        console.log(homeUrl);
         console.log(__dirname);
     }
     else throw 'error';
