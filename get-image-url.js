@@ -50,7 +50,6 @@ module.exports = {
                             return;
                         }
                         if (body) {
-                            console.log(body);
                             resolve(body);
                         }
                     });
