@@ -35,7 +35,7 @@ app.post('/', upload.single('photo'), (req, res) => {
         let name = req.file.filename;
         let url = homeUrl + uploadFolder + '/' + name;
         getText(url).then(() => {
-            res.render('test.html')
+            res.render('test.ejs')
         });
     }
     else throw 'error';
