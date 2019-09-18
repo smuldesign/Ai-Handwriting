@@ -34,8 +34,7 @@ app.post('/', upload.single('photo'), (req, res) => {
     var homeUrl = req.protocol+"://"+req.headers.host;
     if(req.file) {
         let name = req.file.filename;
-        // let url = homeUrl + uploadFolder + '/' + name;
-        let url = 'https://handwriting-ai.herokuapp.com/uploads/images/1568796439473.png';
+        let url = homeUrl + uploadFolder + '/' + name;
         getText(url)
             .then((result) => {
             result = JSON.parse(result);
