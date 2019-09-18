@@ -2,7 +2,7 @@ const express = require('express');
 const multer = require('multer');
 const uploadFolder = '/uploads/images';
 const getimage = require('./get-image-url.js');
-
+const ejs = require('ejs')
 
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -37,7 +37,7 @@ app.post('/', upload.single('photo'), (req, res) => {
         let url = homeUrl + uploadFolder + '/' + name;
         getText(url).then((result) => {
             console.log(result);
-            ejs.render('test.ejs', result)
+            res.render('test.ejs', result)
         });
     }
     else throw 'error';
