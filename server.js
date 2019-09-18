@@ -22,9 +22,11 @@ app.listen(process.env.PORT || PORT, () => {
 });
 
 app.use(express.static('public'));
+app.set('views', __dirname + '/views');
+app.engine('html', require('ejs').renderFile);
 
 app.get('/', (req,res) => {
-    res.sendFile(__dirname + '/upload.html');
+    res.render('upload.html')
 });
 
 app.post('/upload', upload.single('photo'), (req, res) => {
