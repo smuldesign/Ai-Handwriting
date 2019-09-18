@@ -38,7 +38,9 @@ app.post('/', upload.single('photo'), (req, res) => {
         getText(url).then((result) => {
             console.log(result);
             res.render('test.ejs', result)
-        });
+        }).catch(()=> {
+            console.log('error');
+        })
     }
     else throw 'error';
 });
