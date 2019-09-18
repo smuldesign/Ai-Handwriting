@@ -1,8 +1,18 @@
 const express = require('express');
 const multer = require('multer');
 const uploadFolder = '/uploads/images';
-const upload = multer({dest: __dirname + '/public/uploads/images'});
 const getimage = require('./get-image-url.js');
+
+
+var storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, __dirname + '/public/uploads/images')
+    },
+    filename: function (req, file, cb) {
+        cb(null, Date.now() + '.png') //Appending .jpg
+    }
+});
+const upload = multer({ storage: storage });
 
 const app = express();
 const PORT = 8000;
@@ -19,6 +29,7 @@ app.post('/upload', upload.single('photo'), (req, res) => {
         let name = req.file.filename;
         let url = homeUrl + uploadFolder + '/' + name;
         console.log(url);
+        getimage.getText(url);
     }
     else throw 'error';
 });
