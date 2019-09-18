@@ -35,12 +35,13 @@ app.post('/', upload.single('photo'), (req, res) => {
     if(req.file) {
         let name = req.file.filename;
         let url = homeUrl + uploadFolder + '/' + name;
-        getText(url).then((result) => {
+        getText(url)
+            .then((result) => {
             console.log(result);
             res.render('test.ejs', result)
-        }).catch(()=> {
-            console.log('error');
-        })
+        }).catch(function(error) {
+                console.error(error);
+            });
     }
     else throw 'error';
 });
