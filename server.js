@@ -2,7 +2,6 @@ const express = require('express');
 const multer = require('multer');
 const uploadFolder = '/uploads/images';
 const getimage = require('./get-image-url.js');
-const ejs = require('ejs');
 
 
 var storage = multer.diskStorage({
@@ -23,6 +22,7 @@ app.listen(process.env.PORT || PORT, () => {
 });
 
 app.use(express.static('public'));
+app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views');
 app.engine('html', require('ejs').renderFile);
 
