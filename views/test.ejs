@@ -6,10 +6,8 @@
 </head>
 <body>
 <p>
-    <%
-    result.recognitionResults.forEach(text => {
-    text.lines.forEach(line => {
-    %>
+    <% result.recognitionResults.forEach(text => {
+    text.lines.forEach(line => { %>
         <%- line.text + '<br>'%>
     <%
     });
