@@ -15,6 +15,7 @@ app.use(express.static('public'));
 app.post('/upload', upload.single('photo'), (req, res) => {
     if(req.file) {
         let url = JSON.stringify(req.file.path);
+        console.log(url);
         getimage.getText(url);
     }
     else throw 'error';
