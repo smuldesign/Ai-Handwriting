@@ -29,13 +29,20 @@ app.get('/', (req,res) => {
     res.render('upload.html')
 });
 
-app.post('/upload', upload.single('photo'), (req, res) => {
+app.post('/', upload.single('photo'), (req, res) => {
     var homeUrl = req.protocol+"://"+req.headers.host;
     if(req.file) {
         let name = req.file.filename;
         let url = homeUrl + uploadFolder + '/' + name;
-        getimage.getText(url);
-
+        getText(url).then(() => {
+            res.render('test.html')
+        });
     }
     else throw 'error';
 });
+
+async function getText(url) {
+    console.log('calling');
+    var result = await getimage.getText(url);
+    return result;
+}
