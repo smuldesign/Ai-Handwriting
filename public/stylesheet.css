@@ -1,23 +1,22 @@
 @import url(//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css);
-@import url(https://fonts.googleapis.com/css?family=Source+Code+Pro:400,500);
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,400i,500,700,900&display=swap');
 
-
-body {
+.upload {
    background-color: rgb(246,116,107);
 
-    background-repeat: no-repeat;
-    background-size: contain;
-    height: 100vh;
 
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
+h1{
+    font-family: 'Roboto', sans-serif;
+    color: #fff;
+    font-weight: bold;
+    text-transform: capitalize;
 }
 
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: 'Roboto', sans-serif;
 }
 
 .upload form{
@@ -41,13 +40,6 @@ body {
     height: 200px;
 }
 
-input:last-of-type:disabled{
-    background-color: red;
-}
-
-input:last-of-type:enabled{
-    background-color: lawngreen;
-}
 
 .animate
 {
@@ -64,15 +56,22 @@ input:last-of-type:enabled{
     border-radius: 8px;
     font-family: 'Pacifico', cursive;
     font-size: 25px;
-    color: #fff;
+    color: gray;
     text-decoration: none;
 }
 
-.green
+.green:enabled
 {
-    background-color: #82BF56;
+    background-color: #69A297;
     border-bottom: 5px solid #669644;
     text-shadow: 0px -2px #669644;
+}
+
+.green:disabled
+{
+    background-color: #F5F5F5;
+    border-bottom: 5px solid gray;
+    /*text-shadow: 0px -2px gray;*/
 }
 
 .action-button:active
