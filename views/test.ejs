@@ -6,17 +6,18 @@
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
 </head>
 <body class = "upload">
-<form action="">
 <h1>Kopieer hier je text</h1>
-<p>
+<p contenteditable="true">
     <% result.recognitionResults.forEach(text => {
     text.lines.forEach(line => { %>
-        <%- line.text + '<br>'%>
+        <%= line.text %>
     <%
     });
     });
     %>
 </p>
+<form method="post">
+    <input type="submit" placeholder="Go">
 </form>
 </body>
 </html>
