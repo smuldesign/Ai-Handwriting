@@ -3,15 +3,24 @@
 
 .upload {
     background-color: rgb(246, 116, 107);
+    display: flex;
+    flex-direction: column;
 }
 
 h1{
     font-family: 'Roboto', sans-serif;
     color: #fff;
     font-weight: bold;
-    text-transform: capitalize;
+    text-transform: uppercase;
+    position: relative;
 }
 
+.createPdf h1:after {
+    content: '\2193';
+    position: absolute;
+    bottom: -35px;
+    left: 50vw;
+}
 * {
     box-sizing: border-box;
     margin: 0;
@@ -20,6 +29,33 @@ h1{
 }
 
 .upload form{
+    background-color: #2f2f2f;
+    width: 100vw;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+.upload h1 {
+    margin-top: 5vh;
+}
+.upload .container {
+    width: 100vw;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+.upload .container label img{
+    width: 200px;
+    height: 233px;
+}
+.upload .container label {
+    margin: auto;
+}
+.upload .ImageUpload {
+    display: none;
 }
 
 .upload input:last-of-type{
@@ -56,21 +92,22 @@ h1{
     border-radius: 8px;
     font-family: 'Pacifico', cursive;
     font-size: 25px;
-    color: gray;
+    color: white;
     text-decoration: none;
 }
 
 .green:enabled
 {
     background-color: #69A297;
-    border-bottom: 5px solid #669644;
-    text-shadow: 0px -2px #669644;
+    border-bottom: 5px solid rgba(68, 139, 115, 0.41);
+    text-shadow: 0px -2px rgba(68, 139, 115, 0.41);
 }
 
 .green:disabled
 {
     background-color: #F5F5F5;
     border-bottom: 5px solid gray;
+    color: lightgray;
     /*text-shadow: 0px -2px gray;*/
 }
 
@@ -84,7 +121,7 @@ h1{
 /*createpdf*/
 
 .createPdf {
-    background-color: rgb(246,116,107);
+    background-color: #a0bf5e;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -111,7 +148,7 @@ h1{
     flex-direction: column;
     margin: auto;
     text-align: center;
-    background-color: white;
+    background-color: #2f2f2f;
     width: 100vw;
     height: 50vh;
     position: absolute;

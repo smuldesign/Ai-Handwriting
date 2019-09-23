@@ -4,6 +4,12 @@ const uploadFolder = '/uploads/images';
 const getimage = require('./get-image-url.js');
 const ejs = require('ejs')
 
+const pdf = require("pdf-creator-node");
+const fs = require('fs');
+
+const html = fs.readFileSync('./public/template.html', 'utf8');
+
+
 var bodyParser = require('body-parser');
 
 var storage = multer.diskStorage({
@@ -50,13 +56,12 @@ app.post('/', upload.single('photo'), (req, res) => {
     var homeUrl = req.protocol+"://"+req.headers.host;
     if(req.file) {
         let name = req.file.filename;
-        // let url = homeUrl + uploadFolder + '/' + name;
-        let url =  'https://i.ytimg.com/vi/_hNIFWGiI_c/maxresdefault.jpg';
+        let url = homeUrl + uploadFolder + '/' + name;
+        // let url =  'https://i.ytimg.com/vi/_hNIFWGiI_c/maxresdefault.jpg';
         getText(url)
             .then((result) => {
             result = JSON.parse(result);
             data = result;
-            console.log(result.recognitionResults[0]);
             res.redirect('/upload')
         }).catch(function(error) {
                 console.error(error);
@@ -65,8 +70,42 @@ app.post('/', upload.single('photo'), (req, res) => {
     else throw 'error';
 });
 
+var options = {
+    format: "A3",
+    orientation: "portrait",
+    border: "10mm"
+};
+var users = [
+    {
+        name:"Shyam",
+        age:"26"
+    },
+    {
+        name:"Navjot",
+        age:"26"
+    },
+    {
+        name:"Vitthal",
+        age:"26"
+    }
+];
+var document = {
+    html: html,
+    data: {
+        users: users
+    },
+    path: "./output.pdf"
+};
+
 app.post('/upload', (req, res) => {
     console.log(req.body);
+    pdf.create(document, options)
+        .then(res => {
+            console.log(res)
+        })
+        .catch(error => {
+            console.error(error)
+        });
 });
 
 async function getText(url) {

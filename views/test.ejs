@@ -8,19 +8,20 @@
 <body class = "createPdf">
 <div class="container">
     <h1>Pas hier je text aan</h1>
-    <p class="text" contenteditable="true">
+    <div class="text" contenteditable="true">
         <% result.recognitionResults.forEach(text => {
-        text.lines.forEach(line => { %>
-            <%- line.text + '<br>' %>
+        text.lines.forEach(line => { console.log(line.text)%>
+        <p>
+            <%= line.text %>
+        </p>
         <%
         });
         });
         %>
-    </p>
+    </div>
 </div>
 
-<form method="post" class="pdfForm">
-    <textarea class="pdfText" name="pdfText" id="text" cols="30" rows="10"></textarea>
+<form method="" class="pdfForm">
     <input type="submit" value="Get Pdf" class="button action-button animate green">
 </form>
 
