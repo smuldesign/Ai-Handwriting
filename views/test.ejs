@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
 </head>
-<body>
+<body class = "upload">
+<form action="">
+<h1>Kopieer hier je text</h1>
 <p>
     <% result.recognitionResults.forEach(text => {
     text.lines.forEach(line => { %>
@@ -14,5 +17,6 @@
     });
     %>
 </p>
+</form>
 </body>
 </html>

@@ -8,6 +8,10 @@ body {
     background-repeat: no-repeat;
     background-size: contain;
     height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
 
 * {
@@ -20,7 +24,7 @@ body {
 }
 
 .upload input:last-of-type{
-    visibility: hidden;
+
 }
 
 .upload input:first-of-type{

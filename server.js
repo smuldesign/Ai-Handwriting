@@ -34,7 +34,8 @@ app.post('/', upload.single('photo'), (req, res) => {
     var homeUrl = req.protocol+"://"+req.headers.host;
     if(req.file) {
         let name = req.file.filename;
-        let url = homeUrl + uploadFolder + '/' + name;
+        // let url = homeUrl + uploadFolder + '/' + name;
+        let url =  'https://i.ytimg.com/vi/9H_Mz9hjqII/maxresdefault.jpg';
         getText(url)
             .then((result) => {
             result = JSON.parse(result);
