@@ -36,3 +36,11 @@ body {
     width: 200px;
     height: 200px;
 }
+
+input:last-of-type:disabled{
+    background-color: red;
+}
+
+input:last-of-type:enabled{
+    background-color: lawngreen;
+}
