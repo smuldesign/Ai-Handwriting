@@ -3,7 +3,7 @@
 
 
 body {
-   background-color: #4CA1AF;
+   background-color: rgb(246,116,107);
 
     background-repeat: no-repeat;
     background-size: contain;
@@ -28,11 +28,19 @@ body {
 }
 
 .upload input:first-of-type{
-    visibility: hidden;
+    visibility: visible;
 }
 
 .upload label:first-of-type{
     color: #4CA1AF;
     width: 200px;
     height: 200px;
+}
+
+input:last-of-type:disabled{
+    background-color: red;
+}
+
+input:last-of-type:enabled{
+    background-color: lawngreen;
 }
