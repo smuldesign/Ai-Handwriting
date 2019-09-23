@@ -56,6 +56,7 @@ app.post('/', upload.single('photo'), (req, res) => {
             .then((result) => {
             result = JSON.parse(result);
             data = result;
+            console.log(result.recognitionResults[0]);
             res.redirect('/upload')
         }).catch(function(error) {
                 console.error(error);

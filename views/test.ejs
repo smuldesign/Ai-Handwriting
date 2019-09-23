@@ -5,19 +5,23 @@
     <title>Title</title>
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
 </head>
-<body class = "upload">
+<body class = "createPdf">
 <h1>Kopieer hier je text</h1>
-<p contenteditable="true">
+<div class="text">
     <% result.recognitionResults.forEach(text => {
     text.lines.forEach(line => { %>
-        <%= line.text %>
+        <%- '<p>' +  line.text  + '</p>' %>
     <%
     });
     });
     %>
-</p>
-<form method="post">
-    <input type="submit" placeholder="Go">
+</div>
+<form method="post" class="pdfForm">
+    <textarea class="pdfText" name="pdfText" id="text" cols="30" rows="10"></textarea>
+    <input type="submit" placeholder="Go" class="button">
 </form>
+
+<script src="onLoad.js"></script>
+
 </body>
 </html>
