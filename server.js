@@ -2,14 +2,13 @@ const express = require('express');
 const multer = require('multer');
 const uploadFolder = '/uploads/images';
 const getimage = require('./get-image-url.js');
-const ejs = require('ejs');
-
+const ejs = require('ejs')
 
 var bodyParser = require('body-parser');
 
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, __dirname + '/uploads/images')
+        cb(null, __dirname + '/public/uploads/images')
     },
     filename: function (req, file, cb) {
         cb(null, Date.now() + '.png') //Appending .jpg
@@ -54,7 +53,6 @@ app.post('/', upload.single('photo'), (req, res) => {
         let name = req.file.filename;
         let url = homeUrl + uploadFolder + '/' + name;
         // let url =  'https://i.ytimg.com/vi/_hNIFWGiI_c/maxresdefault.jpg';
-        console.log(url);
         getText(url)
             .then((result) => {
             result = JSON.parse(result);
