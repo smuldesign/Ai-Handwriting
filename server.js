@@ -70,44 +70,6 @@ app.post('/', upload.single('photo'), (req, res) => {
     else throw 'error';
 });
 
-var options = {
-    format: "A3",
-    orientation: "portrait",
-    border: "10mm"
-};
-var users = [
-    {
-        name:"Shyam",
-        age:"26"
-    },
-    {
-        name:"Navjot",
-        age:"26"
-    },
-    {
-        name:"Vitthal",
-        age:"26"
-    }
-];
-var document = {
-    html: html,
-    data: {
-        users: users
-    },
-    path: "./output.pdf"
-};
-
-app.post('/upload', (req, res) => {
-    console.log(req.body);
-    pdf.create(document, options)
-        .then(res => {
-            console.log(res)
-        })
-        .catch(error => {
-            console.error(error)
-        });
-});
-
 async function getText(url) {
     console.log('calling');
     return await getimage.getText(url);

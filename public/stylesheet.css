@@ -7,6 +7,30 @@
     flex-direction: column;
 }
 
+.upload .loading-bar.active:after {
+    width: 100%;
+}
+.upload .loading-bar:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: 7px;
+    width: 0%;
+    height: 100%;
+    background-color: white;
+    transition: width 10s;
+}
+.upload .loading-bar {
+    width: 50vw;
+    height: 2em;
+    border: 2px solid #2f2f2f;
+    border-radius: 10px;
+    margin: 10px auto;
+    position: relative;
+}
+
 h1{
     font-family: 'Roboto', sans-serif;
     color: #fff;
@@ -74,6 +98,7 @@ h1{
     color: #4CA1AF;
     width: 200px;
     height: 200px;
+    margin: 0 auto;
 }
 
 
