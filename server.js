@@ -4,11 +4,6 @@ const uploadFolder = '/uploads/images';
 const getimage = require('./get-image-url.js');
 const ejs = require('ejs')
 
-const pdf = require("pdf-creator-node");
-const fs = require('fs');
-
-const html = fs.readFileSync('./public/template.html', 'utf8');
-
 
 var bodyParser = require('body-parser');
 
