@@ -2,14 +2,14 @@ const express = require('express');
 const multer = require('multer');
 const uploadFolder = '/uploads/images';
 const getimage = require('./get-image-url.js');
-const ejs = require('ejs')
+const ejs = require('ejs');
 
 
 var bodyParser = require('body-parser');
 
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, __dirname + '/app/uploads/images')
+        cb(null, __dirname + '/uploads/images')
     },
     filename: function (req, file, cb) {
         cb(null, Date.now() + '.png') //Appending .jpg
