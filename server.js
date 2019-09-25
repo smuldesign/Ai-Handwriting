@@ -9,7 +9,7 @@ var bodyParser = require('body-parser');
 
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, __dirname + '/uploads/images')
+        cb(null, '/uploads/images')
     },
     filename: function (req, file, cb) {
         cb(null, Date.now() + '.png') //Appending .jpg
@@ -51,6 +51,7 @@ app.post('/', upload.single('photo'), (req, res) => {
     var homeUrl = req.protocol+"://"+req.headers.host;
     console.log(req.file);
     if(req.file) {
+        console.log(req.file);
         let name = req.file.filename;
         let url = homeUrl + uploadFolder + '/' + name;
         // let url =  'https://i.ytimg.com/vi/_hNIFWGiI_c/maxresdefault.jpg';
