@@ -58,6 +58,7 @@ app.post('/', upload.single('photo'), (req, res) => {
         let name = req.file.filename;
         let url = homeUrl + uploadFolder + '/' + name;
         // let url =  'https://i.ytimg.com/vi/_hNIFWGiI_c/maxresdefault.jpg';
+        console.log(url);
         getText(url)
             .then((result) => {
             result = JSON.parse(result);
