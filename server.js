@@ -54,6 +54,7 @@ app.get('/upload', (req,res) => {
 
 app.post('/', upload.single('photo'), (req, res) => {
     var homeUrl = req.protocol+"://"+req.headers.host;
+    console.log(req.file);
     if(req.file) {
         let name = req.file.filename;
         let url = homeUrl + uploadFolder + '/' + name;
