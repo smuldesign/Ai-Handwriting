@@ -14,7 +14,7 @@ var bodyParser = require('body-parser');
 
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, __dirname + '/public/uploads/images')
+        cb(null, __dirname + '/app/uploads/images')
     },
     filename: function (req, file, cb) {
         cb(null, Date.now() + '.png') //Appending .jpg
