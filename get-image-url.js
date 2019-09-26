@@ -8,6 +8,7 @@ module.exports = {
             if (!subscriptionKey) {
                 return;
             }
+
             let endpoint = 'https://westeurope.api.cognitive.microsoft.com/';
             if (!subscriptionKey) { throw new Error('Set your environment variables for your subscription key and endpoint.'); }
 
