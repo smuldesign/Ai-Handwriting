@@ -2,7 +2,9 @@ const express = require('express');
 const multer = require('multer');
 const uploadFolder = '/uploads/images';
 const getimage = require('./get-image-url.js');
-const ejs = require('ejs')
+const ejs = require('ejs');
+require('dotenv').config();
+
 
 var bodyParser = require('body-parser');
 

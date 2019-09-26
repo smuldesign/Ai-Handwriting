@@ -1,10 +1,13 @@
+require('dotenv').config();
 module.exports = {
     getText: function (image) {
         return new Promise(resolve => {
 
             const request = require('request');
-
-            let subscriptionKey = '8aceeb2bc48c4f2888708a3a67e836bd';
+            let subscriptionKey = process.env.SUBSCRIPTIONKEY;
+            if (!subscriptionKey) {
+                return;
+            }
             let endpoint = 'https://westeurope.api.cognitive.microsoft.com/';
             if (!subscriptionKey) { throw new Error('Set your environment variables for your subscription key and endpoint.'); }
 
