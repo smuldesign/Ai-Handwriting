@@ -10,6 +10,9 @@ These instructions will get you a copy of the project up and running on your loc
 
 What things you need to install the software and how to install them:
 ```
+For this project you will need a key for microsoft azure.
+```
+```
 For this project you will need nodejs running on your machine.
 ```
 ```
@@ -37,7 +40,7 @@ For this you can simple install heroku and run:
 npm run heroku
 ```
 This wil commit everything and deploy it on your heroku project.
- 
+
 
 ## Authors
 
